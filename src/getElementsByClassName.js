@@ -7,15 +7,19 @@
 var getElementsByClassName = function(className){
     var results = [];
 
-    var search = function(newNode){
-        if (newNode.hasChildNodes()){
-            var children = newNode.children;
+    var search = function(node){
+        if (node.hasChildNodes()){
+
+            var children = node.children;//getting all the children
+
             for (var i = 0; i < children.length; i++) {
-                if (children[i].classList.contains(className)==true){
-                    results.push(children[i]);
+
+                if (children[i].classList.contains(className)){
+                    results.push(children[i]);//add children to results list if they have the class
                 }
+
                 if (children[i].hasChildNodes()){
-                    search(children[i]);//recursively call
+                    search(children[i]);//recursive call
                 }
             }
         }
