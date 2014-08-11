@@ -19,7 +19,7 @@ var stringifyJSON = function(obj) {
         }
         else {
         var keys = Object.keys(obj);
-        for (var i =0; i < keys.length; i++){
+        for (var i = 0; i < keys.length; i++){
           var addedString = '"' + keys[i] + '":';
           var keyVal = obj[keys[i]];
           if (typeof keyVal == "function" || keyVal === undefined){
@@ -27,7 +27,7 @@ var stringifyJSON = function(obj) {
           }
           else{
             addedString = addedString + stringifyJSON(obj[keys[i]]);
-          result.push(addedString);
+            result.push(addedString);
             }
         }
           return "{" + result.join(",") + "}";
